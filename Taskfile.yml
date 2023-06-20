@@ -67,6 +67,7 @@ tasks:
         sh: "date +%Y%m%d-$(tr -dc 'a-zA-Z0-9' < /dev/urandom | fold -w 8 | head -n 1)"
     dir: "{{ .OS }}"
     cmds:
+      - packer init .
       - "packer build -var vagrant_cloud_version={{ .Version }} -var-file=vars/{{ .Variant }}.pkrvars.hcl ."
 
   build:debian:server:en:
