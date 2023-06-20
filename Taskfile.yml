@@ -57,6 +57,7 @@ tasks:
   validate:
     desc: Validate hcl files
     cmds:
+      - "packer init debian"
       - "cd debian && packer validate -var-file=vars/debian-12.0-server-en.pkrvars.hcl -var 'vagrant_cloud_version=0.0.0' ."
 
   build:
