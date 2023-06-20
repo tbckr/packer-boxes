@@ -64,7 +64,6 @@ jobs:
 
           # Ensure Packer is installed correctly.
           packer --version
-          packer
 
       - name: Validate hcl files
         run: |
