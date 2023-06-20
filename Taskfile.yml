@@ -60,7 +60,7 @@ tasks:
       - "packer init debian"
       - "cd debian && packer validate -var-file=vars/debian-12.0-server-en.pkrvars.hcl -var 'vagrant_cloud_version=0.0.0' ."
 
-  build:
+  build:base:
     desc: Build a specific vagrant box
     vars:
       Version:
@@ -73,7 +73,7 @@ tasks:
   build:debian:server:en:
     desc: Build a Debian Server box (en)
     cmds:
-      - task: build
+      - task: build:base
         vars:
           OS: debian
           Variant: debian-12.0-server-en
