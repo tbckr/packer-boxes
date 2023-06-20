@@ -66,5 +66,7 @@ jobs:
           packer --version
 
       - name: Validate hcl files
+        env:
+          VAGRANT_CLOUD_TOKEN: ${{ secrets.VAGRANT_CLOUD_TOKEN }}
         run: |
           task validate
