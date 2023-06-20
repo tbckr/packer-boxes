@@ -10,6 +10,7 @@ This is a list of 3rd party software and tools used in this repository.
 
 - [Details](#details)
   - [Helper Scripts & Packer configuration](#helper-scripts--packer-configuration)
+  - [Validate Github Action](#validate-github-action)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
