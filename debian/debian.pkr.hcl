@@ -53,8 +53,17 @@ build {
     )
   }
 
-  post-processor "vagrant" {
-    vagrantfile_template = "${path.root}/vagrantfile-debian.template"
-    output               = "${var.build_directory}/${var.box_basename}-${var.keymap}.{{ .Provider }}.box"
+  post-processors {
+
+    post-processor "vagrant" {
+      vagrantfile_template = "${path.root}/vagrantfile-debian.template"
+      output               = "${var.build_directory}/${var.box_basename}-${var.keymap}.{{ .Provider }}.box"
+    }
+
+    post-processor "vagrant-cloud" {
+      access_token = "${var.vagrant_cloud_token}"
+      box_tag      = "tbckr/debian-12-server-en"
+      version      = "${var.vagrant_cloud_version}"
+    }
   }
 }

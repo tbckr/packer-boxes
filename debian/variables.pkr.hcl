@@ -85,6 +85,20 @@ variable "vm_name" {
   type = string
 }
 
+#############################
+### Vagrant Cloud Options ###
+#############################
+
+variable "vagrant_cloud_token" {
+  type      = string
+  default   = "${env("VAGRANT_CLOUD_TOKEN")}"
+  sensitive = true
+}
+
+variable "vagrant_cloud_version" {
+  type = string
+}
+
 ##################
 ### Networking ###
 ##################
