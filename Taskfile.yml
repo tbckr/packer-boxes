@@ -58,17 +58,14 @@ tasks:
     desc: Validate hcl files
     cmds:
       - "packer init -upgrade debian"
-      - "cd debian && packer validate -var-file=vars/debian-12.0-server-en.pkrvars.hcl -var 'vagrant_cloud_version=0.0.0' ."
+      - "cd debian && packer validate -var-file=vars/debian-12.0-server-en.pkrvars.hcl ."
 
   build:base:
     desc: Build a specific vagrant box
-    vars:
-      Version:
-        sh: "date +%Y%m%d-$(tr -dc 'a-zA-Z0-9' < /dev/urandom | fold -w 8 | head -n 1)"
     dir: "{{ .OS }}"
     cmds:
       - packer init .
-      - "packer build -var vagrant_cloud_version={{ .Version }} -var-file=vars/{{ .Variant }}.pkrvars.hcl ."
+      - "packer build -var-file=vars/{{ .Variant }}.pkrvars.hcl ."
 
   build:debian:server:en:
     desc: Build a Debian Server box (en)
